@@ -258,7 +258,7 @@ resources:
 <!-- STERLING DETAILS HERE -->
 
 ## Overview
-- Request [ROKS GitOps Cluster](https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0) on Techzone
+- Request [ROKS GitOps Cluster]([https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0](https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0) on Techzone
 - Configure a Cluster
     > A [github account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) & an empty [organization](https://github.com/organizations/plan) is needed!
 - Deploying insfrastructure
@@ -266,29 +266,14 @@ resources:
 Complete the details as follows:
 
 - Name your Cluster, choose your purpose with purpose description & select your preferred geopraphy.
-        <details>
-        <summary> Create a Reservation Screenshot </summary>
-        ![Create a reservation](images/techzone-geo.png "screenshot reservation for Roks gitops cluster")
-        </details>
-
 - Set your end date & time.
 - Select Worker Node Flavor as 8CPU x 32GB from the drop-down list.
 - Paste your Public GitHub Access API token.
     - Settings &rarr; Developer Settings &rarr; Personal access token & Generate a new one
-        <details>
-        <summary>Access Token Screenshot</summary>
-        
-        ![Access Token](images/github-access-token.png "screenshot of personal access token")
-        </details>
 - Paste the name of your [Public GitHub Organization](https://github.com/organizations/plan).
 - Select NFS Size as 500 GB from the drop-down list.
-        <details>
-        <summary> Filling out your custer configurations </summary>
-        ![Filling out your custer configurations Screenshot](images/cluster-options.png "screenshot cluster configuration")
-        </details>
 
 ## IBM Entitlement Key
-
 
 The IBM Entitlement Key is required to pull IBM Cloud Pak specific container images from the IBM Entitled Registry. To get an entitlement key,
 
@@ -324,7 +309,6 @@ cd $GIT_ORG
 git clone https://github.com/$GIT_ORG/multi-tenancy-gitops.git
 git clone https://github.com/$GIT_ORG/multi-tenancy-gitops-infra.git
 git clone https://github.com/$GIT_ORG/multi-tenancy-gitops-services.git
-git clone https://github.com/$GIT_ORG/multi-tenancy-gitops-apps.git
 ls -l
 ```
 #### Launch and login to ArgoCD
@@ -405,7 +389,8 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
         ```
 
     >  💡 **NOTE**  
-    > Commit and Push the changes for `multi-tenancy-gitops-services` 
+    > Commit and Push the changes for `multi-tenancy-gitops-services`
+    > Please note that the `ApiVersion` for the `PSP` must be `/v1` if your using `OCP 4.10+` 
 
 1. Enable DB2, MQ and prerequisites in the main `multi-tenancy-gitops` repository
 
@@ -445,6 +430,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
     >  💡 **NOTE**  
     > Commit and Push the changes for `multi-tenancy-gitops` and
     > sync ArgoCD application `services` this will take around 1.5 hr for the database setup.
+    > If you got a BackOff error on OCP, please add your ibm-entitelment-key secret on b2bi-prod that should fix it.
 
 ---
 
