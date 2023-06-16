@@ -327,7 +327,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
 ![SFG single NS](images/sfg-single-ns.png)
 
 ### Infrastructure - Kustomization.yaml
-1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and synchronize the `infra` Application in the ArgoCD console.
+1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and SYNCHRONIZE the `infra` Application in the ArgoCD console.
 
     ```bash        
     cd multi-tenancy-gitops/0-bootstrap/single-cluster/1-infra
@@ -352,7 +352,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
     | MQ | RWO | ibmc-block-gold | ocs-storagecluster-cephfs |
     | SFG | RWX | managed-nfs-storage | ocs-storagecluster-cephfs |
 
-1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` and install Sealed Secrets by uncommenting the following line, **commit** and **push** the changes and refresh the `services` Application in the ArgoCD console.
+1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` and install Sealed Secrets by uncommenting the following line, **commit** and **push** the changes and REFRESH the `services` Application in the ArgoCD console.
     ```yaml
     - argocd/instances/sealed-secrets.yaml
     ```
@@ -421,7 +421,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
     >  💡 **NOTE**  
     > Commit and Push the changes for `multi-tenancy-gitops-services` 
 
-1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` by uncommenting the following line to install Sterling File Gateway, **commit** and **push** the changes and refresh the `services` Application in the ArgoCD console:
+1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` by uncommenting the following line to install Sterling File Gateway, **commit** and **push** the changes and REFRESH the `services` Application in the ArgoCD console:
 
     ```yaml
     - argocd/instances/ibm-sfg-b2bi-prod.yaml
