@@ -327,7 +327,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
 ![SFG single NS](images/sfg-single-ns.png)
 
 ### Infrastructure - Kustomization.yaml
-1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and <code><i><b>SYNCHRONIZE</b></i></code> the `infra` Application in the ArgoCD console.
+1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and <code><i><b>REFRESH</b></i></code> the `infra` Application in the ArgoCD console.
 
     ```bash        
     cd multi-tenancy-gitops/0-bootstrap/single-cluster/1-infra
@@ -358,7 +358,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
     ```
 
     >  💡 **NOTE**  
-    > Commit and Push the changes for `multi-tenancy-gitops` & sync ArgoCD. 
+    > Commit and Push the changes for `multi-tenancy-gitops` & <code><i><b>REFRESH</b></i></code> ArgoCD. 
 
 1. Clone the services repo for GitOps, open a terminal window and clone the `multi-tenancy-gitops-services` repository under your Git Organization.
         
@@ -407,8 +407,8 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
 
 
     >  💡 **NOTE**  
-    > Commit and Push the changes for `multi-tenancy-gitops` and
-    > sync the ArgoCD application `services`.
+    > Commit and Push the changes for `multi-tenancy-gitops` & <code><i><b>REFRESH</b></i></code>
+    > ArgoCD `services`.
     >
     > Make sure that the sterling toolkit pod does not throw any error.
     > Wait for 5 minutes until the database is fully initialized. 
