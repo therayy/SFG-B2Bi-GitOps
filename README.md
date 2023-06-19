@@ -327,7 +327,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
 ![SFG single NS](images/sfg-single-ns.png)
 
 ### Infrastructure - Kustomization.yaml
-1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and SYNCHRONIZE the `infra` Application in the ArgoCD console.
+1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and <code><i><b>SYNCHRONIZE</b></i></code> the `infra` Application in the ArgoCD console.
 
     ```bash        
     cd multi-tenancy-gitops/0-bootstrap/single-cluster/1-infra
@@ -352,7 +352,7 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
     | MQ | RWO | ibmc-block-gold | ocs-storagecluster-cephfs |
     | SFG | RWX | managed-nfs-storage | ocs-storagecluster-cephfs |
 
-1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` and install Sealed Secrets by uncommenting the following line, **commit** and **push** the changes and REFRESH the `services` Application in the ArgoCD console.
+1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` and install Sealed Secrets by uncommenting the following line, **commit** and **push** the changes and <code><i><b>REFRESH</b></i></code> the `services` Application in the ArgoCD console.
     ```yaml
     - argocd/instances/sealed-secrets.yaml
     ```
@@ -390,7 +390,9 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
 
     >  💡 **NOTE**  
     > Commit and Push the changes for `multi-tenancy-gitops-services`
-    > Please note that the `ApiVersion` for the `PSP` must be `/v1` if your using `OCP 4.10+` 
+    > Please note that the `ApiVersion` for the `PSP` service must be `/v1` if you're using `OCP 4.10+`
+    > edit line 2 in the <code>multi-tenancy-gitops-services\instances\ibm-sfg-b2bi-nonprod-setup\ibm-b2bi-rb.yaml</code>
+    > file to remove the `beta1`, leaving only `/v1` 
 
 1. Enable DB2, MQ and prerequisites in the main `multi-tenancy-gitops` repository
 
@@ -421,29 +423,22 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
     >  💡 **NOTE**  
     > Commit and Push the changes for `multi-tenancy-gitops-services` 
 
-1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` by uncommenting the following line to install Sterling File Gateway, **commit** and **push** the changes and REFRESH the `services` Application in the ArgoCD console:
+1. Edit the Services layer `${GITOPS_PROFILE}/2-services/kustomization.yaml` by uncommenting the following line to install Sterling File Gateway, **commit** and **push** the changes and <code><i><b>REFRESH</b></i></code> the `services` Application in the ArgoCD console:
 
     ```yaml
     - argocd/instances/ibm-sfg-b2bi-prod.yaml
     ```
 
     >  💡 **NOTE**  
-    > Commit and Push the changes for `multi-tenancy-gitops` and
-    > sync ArgoCD application `services` this will take around 1.5 hr for the database setup.
+    > This takes around 1.5 hr for the database setup.
     > If you got a BackOff error on OCP, please add your ibm-entitelment-key secret on b2bi-prod that should fix it.
 
----
-
-> **⚠️** Warning:  
-> If you decided to scale the pods or upgrade the verison you should do the following steps:
->> **This is to avoid going through the database setup job again**
-
-- Step 1:
+1.
     ```bash
     cd multi-tenancy-gitops-services/instances/ibm-sfg-b2bi-prod
     ```
-- Step 2:
-  - Inside `values.yaml`, find & set 
+    1.
+      - Inside `values.yaml`, find & set 
         ```bash
         . . .
         datasetup:
@@ -453,7 +448,6 @@ This recipe is for deploying the B2BI Sterling File Gateway in a single namespac
         . . .
         ```
 - Commit and push the changes for the `multi-tenancy-gitops-services` repo.
----
 
 ### Validation
 
