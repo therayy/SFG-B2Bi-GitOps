@@ -1,7 +1,7 @@
 
 # [Sterling File Gateway](https://developer.ibm.com/components/sterling/tutorials/) Tutorial
 
-# Install IBM Sterling B2B Integrator / Sterling File Gateway using a GitOps workflow from TechZone
+# Install IBM Sterling B2B Integrator / Sterling File Gateway using a GitOps workflow
 
 <!--- cSpell:ignore gitorg YAMLs -->
 
