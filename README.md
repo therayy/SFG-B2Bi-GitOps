@@ -258,7 +258,7 @@ resources:
 <!-- STERLING DETAILS HERE -->
 
 ## Overview
-- Request [ROKS GitOps Cluster]([https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0](https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0) on Techzone
+- Request [ROKS GitOps Cluster]([https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0)(https://techzone.ibm.com/my/reservations/create/60e8aefaec55c60018933dd0) on Techzone
 - Configure a Cluster
     > A [github account](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) & an empty [organization](https://github.com/organizations/plan) is needed!
 - Deploying insfrastructure
